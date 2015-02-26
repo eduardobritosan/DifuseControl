@@ -11,24 +11,24 @@ public class DifuseControl
 	public DifuseControl()
 	{}
 
-	public float mathFunction(float error)
+	public double mathFunction(double error)
 	{
-		float numerador = 0;
-		float denominador = 0;
-		float aux,salida;
+		double numerador = 0;
+		double denominador = 0;
+		double aux,salida;
 		for(int i = -25; i <= 100; ++i){
-			aux = Math.max(Math.max(Math.min(errorNegativo(error), aperturaCerrar(error)),
-						Math.min(errorCero(error), aperturaCerrar(error))),
-						Math.min(errorPositivo(error), aperturaAbrir(error)));
+			aux = Math.max(Math.max(Math.min(errorNegativo(error), aperturaCerrar(i)),
+						Math.min(errorCero(error), aperturaCerrar(i))),
+						Math.min(errorPositivo(error), aperturaAbrir(i)));
 			numerador += aux * i;
 			denominador += aux;
 		}
 		salida = numerador / denominador;
-		return salida;
+		return (salida);
 	}
-	private float errorNegativo (float input)
+	private double errorNegativo (double input)
 	{
-		float error;
+		double error;
 
 		if (input <= -10 && input >= -15)
 			error = 1;
@@ -39,12 +39,12 @@ public class DifuseControl
 		return error;
 	}
 
-	private float errorPositivo (float input)
+	private double errorPositivo (double input)
 	{
-		float error;
+		double error;
 		
 		if (input <= 10 && input >= 0)
-			error = input/50;
+			error = input/10;
 		else if (input <= 15 && input >= 10)
 			error = 1;
 		else 
@@ -52,9 +52,9 @@ public class DifuseControl
 		return error;
 	}
 	
-	private float errorCero (float input)
+	private double errorCero (double input)
 	{
-		float error;
+		double error;
 		
 		if (input <= 0 && input >= -5)
 			error = (5+input)/5;
@@ -65,27 +65,27 @@ public class DifuseControl
 		return error;
 	}
 
-	private float aperturaAbrir(float input)
+	private double aperturaAbrir(double input)
 	{
-		float apertura;
+		double apertura;
 
 		if (input <= 50 && input >= 0)
 			apertura = input/50;
-		else if(input <= 50)
+		else if(input >= 50)
 			apertura = 1;
 		else
 			apertura = 0;
 		return apertura;
 	}
 
-	private float aperturaCerrar(float input)
+	private double aperturaCerrar(double input)
 	{
-		float apertura;
+		double apertura;
 
 		if (input <= 0 && input >= -25)
-			apertura = 25+input/25;
+			apertura = (25+input)/25;
 		else if(input <= 25 && input >= 0)
-			apertura = 25-input/25;
+			apertura = (25-input)/25;
 		else
 			apertura = 0;
 		return apertura;
