@@ -1,5 +1,5 @@
-# Sistema de logica difusa aplicado a un embalse.
+# Fuzzy logic system applied to a theoretical reservoir
 
-Practica 3 de *Inteligencia Artificial Avanzada*, cuyo objetivo es desarrollar un sistema de logica difusa en un caso practico de un embalse.
+Made for the Advanced Artificial Intelligence course in college
 
-##Por Hector Rodriguez Perez y Eduardo Brito.
+By Hector Rodriguez Perez y Eduardo Brito.
